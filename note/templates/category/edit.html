@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit Category #{{ cat.id }}
+{% endblock %}
+
+{% block nav_title %}
+    Edit Category #{{ cat.id }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <form class="col s12" action="{% url 'edit-cat' cat_id=cat.id %}" method="post">
+            {% include "category/form.html" %}
+        </form>
+    </div>
+    </div>
+{% endblock %}

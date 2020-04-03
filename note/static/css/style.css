@@ -1,0 +1,24 @@
+header, main, footer {
+    padding-left: 300px;
+}
+main {
+    margin-top: 30px;
+}
+nav h2 {
+    margin: 0;
+}
+.user-view {
+    height: 200px;
+}
+.collection.welcome li {
+    background-color: transparent;
+}
+.btn-floating.halfway-fab.red {
+    right: 90px;
+}
+.card-action .detail {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    color: aliceblue;
+}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    New Note
+{% endblock %}
+
+{% block nav_title %}
+    New Note
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <form class="col s12"
+              action="{% url 'new-note' %}"
+              method="post"
+        >
+            {% include "note/form.html" %}
+        </form>
+    </div>
+    </div>
+{% endblock %}
+{% block init_scipts %}
+    var elem = document.getElementById("id_category");
+    var instance = M.FormSelect.init(elem);
+{%  endblock %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Materialize CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Materialize Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <header>
+        <!-- Nav bar -->
+        <nav>
+            <div class="nav-wrapper">
+                <h2 class="center">{% block nav_title %}{% endblock %}</h2>
+            </div>
+        </nav>
+        <ul id="slide-out" class="sidenav sidenav-fixed red lighten-2">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="{% static 'image/office.jpg' %}">
+                    </div>
+                </div>
+                <li><a href="/"><i class="material-icons">list</i>All Notes</a></li>
+                {% if cats.count > 0 %}
+                    <li><a href="/note/new"><i class="material-icons">event_note</i>New Note</a></li>
+                {% endif %}
+                <li><a href="/cat/new"><i class="material-icons">filter_list</i>New Category</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="subheader">CATEGORIES</a></li>
+                {% for cat in cats %}
+                    <li>
+                        <a class="waves-effect" href="/notes/cat/{{ cat.id }}">
+                            <span class="badge">{{ cat.notes.count }}</span>{{ cat.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </li>
+        </ul>
+    </header>
+    <main>
+        {% if messages %}
+             <ul class="collection">
+                {% for message in messages %}
+                    {% if message.tags == "success"%}
+                        <li class="green collection-item" style="color: aliceblue">{{ message }}</li>
+                    {% endif %}
+                    {% if message.tags == "error"%}
+                        <li class="red collection-item" style="color: aliceblue">{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        {% block init_scipts %}
+        {%  endblock %}
+    });
+</script>
+</html>

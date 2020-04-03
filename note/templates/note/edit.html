@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit Note #{{ note.id }}
+{% endblock %}
+
+{% block nav_title %}
+    Edit Note #{{ note.id }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <form class="col s12"
+              action="{% url 'edit-note' note_id=note.id %}"
+              method="post"
+        >
+            {% include "note/form.html" %}
+        </form>
+    </div>
+    </div>
+{% endblock %}
+{% block init_scipts %}
+    var elem = document.getElementById("id_category");
+    elem.value = ({{ note.category.id }});
+    var instance = M.FormSelect.init(elem);
+{%  endblock %}
