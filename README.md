@@ -13,7 +13,7 @@ A simple note taking application using `Django 3.0.5`.
 * Category page to display its information and all notes linked to it.
 * Note page to display note information.
 * Notification messages.
-* Using Materialize CSS Framework https://materializecss.com for UI design.
+* Using [Materialize CSS Framework](https://materializecss.com) for UI design.
 
 ## Architecture
 
@@ -71,6 +71,9 @@ python manage.py runserver
 
 ### Note page
 ![note page](screenshots/note%20inforamtion.PNG)
+
+# Credits
+* HTML Styling and Icons using [Materialize CSS Framework](https://materializecss.com) 
 
 
 
