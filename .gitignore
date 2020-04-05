@@ -104,8 +104,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-# Django migrations
-migrations/
+
 
 # Scripts
 *.bat
