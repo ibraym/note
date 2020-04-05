@@ -15,6 +15,9 @@ A simple note taking application using `Django 3.0.5`.
 * Notification messages.
 * Using [Materialize CSS Framework](https://materializecss.com) for UI design.
 
+## Demo
+https://simple-note-production.herokuapp.com/
+
 ## Architecture
 
 ### Models
